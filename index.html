@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NurseConnect - Professional Healthcare at Your Doorstep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
+        }
+        .toast {
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter gradient-bg min-h-screen">
+    <nav class="glass fixed w-full z-50 px-4 py-3">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold text-blue-600">NurseConnect</div>
+            <div class="flex gap-4">
+                <button class="px-4 py-2 hover:bg-blue-50 rounded-lg transition">Home</button>
+                <button class="px-4 py-2 hover:bg-blue-50 rounded-lg transition">Book</button>
+                <button class="px-4 py-2 hover:bg-blue-50 rounded-lg transition">Dashboard</button>
+                <button class="px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition">Sign In</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto pt-24 px-4">
+        <div id="homePage" class="space-y-12">
+            <section class="text-center space-y-4">
+                <h1 class="text-4xl font-bold text-gray-800">Book Certified Nurses for Home Care</h1>
+                <p class="text-gray-600">Professional healthcare at your doorstep</p>
+            </section>
+
+            <section class="grid md:grid-cols-3 gap-6">
+                <div class="glass p-6 rounded-xl space-y-4">
+                    <div class="text-pink-500 text-4xl"><i class="bi bi-droplet"></i></div>
+                    <h3 class="text-xl font-semibold">Injections</h3>
+                    <p class="text-gray-600">Safe and professional medication and injections</p>
+                    <button class="px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 w-full transition">Book Service</button>
+                </div>
+                <div class="glass p-6 rounded-xl space-y-4">
+                    <div class="text-pink-500 text-4xl"><i class="bi bi-bandaid"></i></div>
+                    <h3 class="text-xl font-semibold">Wound Care</h3>
+                    <p class="text-gray-600">Expert wound dressing and wound management</p>
+                    <button class="px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 w-full transition">Book Service</button>
+                </div>
+                <div class="glass p-6 rounded-xl space-y-4">
+                    <div class="text-pink-500 text-4xl"><i class="bi bi-heart-pulse"></i></div>
+                    <h3 class="text-xl font-semibold">Health Monitoring</h3>
+                    <p class="text-gray-600">Regular vitals monitoring and health assessment</p>
+                    <button class="px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 w-full transition">Book Service</button>
+                </div>
+            </section>
+
+            <section class="glass p-8 rounded-xl">
+                <h2 class="text-2xl font-bold mb-6">Why Choose NurseConnect</h2>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <i class="bi bi-check-circle text-pink-500 text-xl"></i>
+                        <p>All our nurses are licensed and certified</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i class="bi bi-clock text-pink-500 text-xl"></i>
+                        <p>24/7 Availability - We're here when you need us</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i class="bi bi-calendar-check text-pink-500 text-xl"></i>
+                        <p>Fast and reliable appointment system</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="toast" class="fixed bottom-4 right-4 hidden glass p-4 rounded-lg shadow-lg toast">
+        <div class="flex items-center gap-2">
+            <i class="bi bi-check-circle text-green-500"></i>
+            <p>Appointment booked successfully!</p>
+        </div>
+    </div>
+
+    <script>
+        // Show toast notification
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Add click event listeners to all "Book Service" buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent === 'Book Service') {
+                button.addEventListener('click', () => {
+                    showToast();
+                });
+            }
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
